@@ -1,0 +1,1 @@
+﻿SELECT * FROM dbo.Commande inner join dbo.Article_commande on Article_commande.Id_commande = Commande.Id_commande inner join dbo.Article on Article.Id_article = Article_commande.Id_article where Commande.Id_commande=19
