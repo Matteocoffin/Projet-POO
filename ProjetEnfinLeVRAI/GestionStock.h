@@ -2,6 +2,7 @@
 #pragma once
 #include "Connexion.h"
 #include "MapStock.h"
+#include "Assert.h"
 
 
 namespace Service {
@@ -10,8 +11,9 @@ namespace Service {
 	private:connexion^ cad;
 	private:MapStock^ Stock;
 	private:DataSet^ ds;
+	private: 
 	private: int securite;
-	public:
+	public:assert^ teste;
 		GestionStock();
 		GestionStock(int);
 		GestionStock(String^, int, int, int, int, float);

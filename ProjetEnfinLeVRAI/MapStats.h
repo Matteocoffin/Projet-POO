@@ -12,6 +12,7 @@ public: String^ PVendu();
 public: String^ MVendu();
 public: String^ VCommercial();
 public: String^ VStock();
+public: String^ Simuler(int, float, float, float, float);
 
 public: MapStats();
 };

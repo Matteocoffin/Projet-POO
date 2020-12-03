@@ -54,4 +54,39 @@ namespace Service {
     {
         return Lier(this->Requete->VStock());
     }
+
+
+    float extraire(float tab[], bool tabB[]) {
+        float retour = 1;
+        int n;
+        for (n = 0; n < 3; n++) {
+            if (0 < tab[n] * tabB[n]) {
+                retour = tab[n] * tabB[n];
+            }
+        }
+        return retour;
+    }
+
+    DataSet^ Service::GestionStats::Simuler(float TVA, bool Marge1, bool Marge2, bool Marge3, bool Remise1, bool Remise2, bool AutreD1, bool AutreD2, bool AutreD3) {
+
+        bool TabBMarge[3] = { Marge1, Marge2, Marge3 };
+        bool TabBRemise[3] = { Remise1, Remise2, 0 };
+        bool TabBAutre[3] = { AutreD1, AutreD2, AutreD3 };
+
+        float TabMarge[3] = { 1.05, 1.10, 1.15 };
+        float TabRemise[3] = { 0.95, 0.94 , 1 };
+        float TabAutre[3] = { 1.02, 1.03, 1.05 };
+
+        float Marge = extraire(TabMarge, TabBMarge);
+        float Reduc = extraire(TabRemise, TabBRemise);
+        float Autre = extraire(TabAutre, TabBAutre);
+
+        int NTVA = 1;
+        if (TVA != 0) {
+            NTVA = 0;
+        }
+
+        return Lier(this->Requete->Simuler(NTVA, TVA, Marge, Reduc, Autre));
+    }
+
 }

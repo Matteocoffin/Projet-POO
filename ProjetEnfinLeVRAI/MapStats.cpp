@@ -61,4 +61,9 @@ String^ MapStats::VStock()
 		"FROM Catalogue";
 }
 
+String^ MapStats::Simuler(int NTVA, float TVA, float Marge, float Reduc, float Autre)
+{
+	return "SELECT SUM(((Catalogue.Prix_HT*Catalogue.Taux_TVA*" + NTVA + "*Catalogue.Quantite_stock + (Catalogue.Prix_HT*" + TVA + "*Catalogue.Quantite_stock))*" + Marge + "*" + Reduc + "*" + Autre + ")) as Stats FROM Catalogue";
+}
+
 MapStats::MapStats() {}

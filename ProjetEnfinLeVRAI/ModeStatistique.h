@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "GestionStats.h"
+#include "Assert.h"
 
 namespace statistique {
 
@@ -63,11 +64,36 @@ namespace statistique {
 	private: System::Windows::Forms::Label^ labelTitre;
 
 
-
+	private: System::Windows::Forms::DataGridView^ dataGridView1;
 	private: System::Windows::Forms::TextBox^ textBoxNom;
 
 	private: System::Windows::Forms::Label^ labelNom;
-	private: System::Windows::Forms::DataGridView^ dataGridView1;
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::RadioButton^ Marge1;
+	private: System::Windows::Forms::RadioButton^ Marge2;
+
+
+	private: System::Windows::Forms::GroupBox^ groupBox1;
+	private: System::Windows::Forms::RadioButton^ Marge3;
+
+	private: System::Windows::Forms::Label^ LabelmargeComme;
+	private: System::Windows::Forms::Label^ labelTVA;
+	private: System::Windows::Forms::TextBox^ textBoxTVA;
+	private: System::Windows::Forms::GroupBox^ groupBox2;
+	private: System::Windows::Forms::Label^ labelRemise;
+	private: System::Windows::Forms::RadioButton^ Remise2;
+
+	private: System::Windows::Forms::RadioButton^ Remise1;
+
+	private: System::Windows::Forms::GroupBox^ groupBox3;
+	private: System::Windows::Forms::Label^ labelAutre;
+	private: System::Windows::Forms::RadioButton^ AutreD3;
+
+	private: System::Windows::Forms::RadioButton^ AutreD2;
+
+	private: System::Windows::Forms::RadioButton^ AutreD1;
+
+	private: System::Windows::Forms::Button^ Simuler;
 
 	protected:
 
@@ -95,10 +121,31 @@ namespace statistique {
 			this->radioButtonAStock = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButtonVCommercial = (gcnew System::Windows::Forms::RadioButton());
 			this->labelTitre = (gcnew System::Windows::Forms::Label());
+			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->textBoxNom = (gcnew System::Windows::Forms::TextBox());
 			this->labelNom = (gcnew System::Windows::Forms::Label());
-			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->Marge1 = (gcnew System::Windows::Forms::RadioButton());
+			this->Marge2 = (gcnew System::Windows::Forms::RadioButton());
+			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->LabelmargeComme = (gcnew System::Windows::Forms::Label());
+			this->Marge3 = (gcnew System::Windows::Forms::RadioButton());
+			this->labelTVA = (gcnew System::Windows::Forms::Label());
+			this->textBoxTVA = (gcnew System::Windows::Forms::TextBox());
+			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->labelRemise = (gcnew System::Windows::Forms::Label());
+			this->Remise2 = (gcnew System::Windows::Forms::RadioButton());
+			this->Remise1 = (gcnew System::Windows::Forms::RadioButton());
+			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
+			this->labelAutre = (gcnew System::Windows::Forms::Label());
+			this->AutreD3 = (gcnew System::Windows::Forms::RadioButton());
+			this->AutreD2 = (gcnew System::Windows::Forms::RadioButton());
+			this->AutreD1 = (gcnew System::Windows::Forms::RadioButton());
+			this->Simuler = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			this->groupBox1->SuspendLayout();
+			this->groupBox2->SuspendLayout();
+			this->groupBox3->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// PanierMoyen
@@ -243,14 +290,214 @@ namespace statistique {
 			this->dataGridView1->Size = System::Drawing::Size(460, 236);
 			this->dataGridView1->TabIndex = 15;
 			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15));
+			this->label1->Location = System::Drawing::Point(814, 15);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(114, 25);
+			this->label1->TabIndex = 15;
+			this->label1->Text = L"Simulation :";
+			// 
+			// Marge1
+			// 
+			this->Marge1->AutoSize = true;
+			this->Marge1->Location = System::Drawing::Point(2, 34);
+			this->Marge1->Name = L"Marge1";
+			this->Marge1->Size = System::Drawing::Size(45, 17);
+			this->Marge1->TabIndex = 16;
+			this->Marge1->TabStop = true;
+			this->Marge1->Text = L"+5%";
+			this->Marge1->UseVisualStyleBackColor = true;
+			// 
+			// Marge2
+			// 
+			this->Marge2->AutoSize = true;
+			this->Marge2->Location = System::Drawing::Point(53, 34);
+			this->Marge2->Name = L"Marge2";
+			this->Marge2->Size = System::Drawing::Size(51, 17);
+			this->Marge2->TabIndex = 17;
+			this->Marge2->TabStop = true;
+			this->Marge2->Text = L"+10%";
+			this->Marge2->UseVisualStyleBackColor = true;
+			// 
+			// groupBox1
+			// 
+			this->groupBox1->Controls->Add(this->LabelmargeComme);
+			this->groupBox1->Controls->Add(this->Marge3);
+			this->groupBox1->Controls->Add(this->Marge2);
+			this->groupBox1->Controls->Add(this->Marge1);
+			this->groupBox1->Location = System::Drawing::Point(754, 100);
+			this->groupBox1->Name = L"groupBox1";
+			this->groupBox1->Size = System::Drawing::Size(174, 63);
+			this->groupBox1->TabIndex = 18;
+			this->groupBox1->TabStop = false;
+			this->groupBox1->Text = L"groupBox1";
+			// 
+			// LabelmargeComme
+			// 
+			this->LabelmargeComme->AutoSize = true;
+			this->LabelmargeComme->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10));
+			this->LabelmargeComme->Location = System::Drawing::Point(6, 14);
+			this->LabelmargeComme->Name = L"LabelmargeComme";
+			this->LabelmargeComme->Size = System::Drawing::Size(131, 17);
+			this->LabelmargeComme->TabIndex = 19;
+			this->LabelmargeComme->Text = L"Marge commerciale";
+			// 
+			// Marge3
+			// 
+			this->Marge3->AutoSize = true;
+			this->Marge3->Location = System::Drawing::Point(110, 34);
+			this->Marge3->Name = L"Marge3";
+			this->Marge3->Size = System::Drawing::Size(51, 17);
+			this->Marge3->TabIndex = 18;
+			this->Marge3->TabStop = true;
+			this->Marge3->Text = L"+15%";
+			this->Marge3->UseVisualStyleBackColor = true;
+			// 
+			// labelTVA
+			// 
+			this->labelTVA->AutoSize = true;
+			this->labelTVA->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10));
+			this->labelTVA->Location = System::Drawing::Point(760, 54);
+			this->labelTVA->Name = L"labelTVA";
+			this->labelTVA->Size = System::Drawing::Size(94, 17);
+			this->labelTVA->TabIndex = 20;
+			this->labelTVA->Text = L"Nouvelle TVA";
+			// 
+			// textBoxTVA
+			// 
+			this->textBoxTVA->Location = System::Drawing::Point(763, 74);
+			this->textBoxTVA->Name = L"textBoxTVA";
+			this->textBoxTVA->Size = System::Drawing::Size(66, 20);
+			this->textBoxTVA->TabIndex = 21;
+			// 
+			// groupBox2
+			// 
+			this->groupBox2->Controls->Add(this->labelRemise);
+			this->groupBox2->Controls->Add(this->Remise2);
+			this->groupBox2->Controls->Add(this->Remise1);
+			this->groupBox2->Location = System::Drawing::Point(754, 157);
+			this->groupBox2->Name = L"groupBox2";
+			this->groupBox2->Size = System::Drawing::Size(174, 63);
+			this->groupBox2->TabIndex = 20;
+			this->groupBox2->TabStop = false;
+			this->groupBox2->Text = L"groupBox2";
+			// 
+			// labelRemise
+			// 
+			this->labelRemise->AutoSize = true;
+			this->labelRemise->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10));
+			this->labelRemise->Location = System::Drawing::Point(6, 14);
+			this->labelRemise->Name = L"labelRemise";
+			this->labelRemise->Size = System::Drawing::Size(138, 17);
+			this->labelRemise->TabIndex = 19;
+			this->labelRemise->Text = L"Remise commerciale";
+			// 
+			// Remise2
+			// 
+			this->Remise2->AutoSize = true;
+			this->Remise2->Location = System::Drawing::Point(53, 34);
+			this->Remise2->Name = L"Remise2";
+			this->Remise2->Size = System::Drawing::Size(42, 17);
+			this->Remise2->TabIndex = 17;
+			this->Remise2->TabStop = true;
+			this->Remise2->Text = L"-6%";
+			this->Remise2->UseVisualStyleBackColor = true;
+			// 
+			// Remise1
+			// 
+			this->Remise1->AutoSize = true;
+			this->Remise1->Location = System::Drawing::Point(2, 34);
+			this->Remise1->Name = L"Remise1";
+			this->Remise1->Size = System::Drawing::Size(42, 17);
+			this->Remise1->TabIndex = 16;
+			this->Remise1->TabStop = true;
+			this->Remise1->Text = L"-5%";
+			this->Remise1->UseVisualStyleBackColor = true;
+			// 
+			// groupBox3
+			// 
+			this->groupBox3->Controls->Add(this->labelAutre);
+			this->groupBox3->Controls->Add(this->AutreD3);
+			this->groupBox3->Controls->Add(this->AutreD2);
+			this->groupBox3->Controls->Add(this->AutreD1);
+			this->groupBox3->Location = System::Drawing::Point(754, 214);
+			this->groupBox3->Name = L"groupBox3";
+			this->groupBox3->Size = System::Drawing::Size(174, 63);
+			this->groupBox3->TabIndex = 20;
+			this->groupBox3->TabStop = false;
+			this->groupBox3->Text = L"groupBox3";
+			// 
+			// labelAutre
+			// 
+			this->labelAutre->AutoSize = true;
+			this->labelAutre->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10));
+			this->labelAutre->Location = System::Drawing::Point(6, 14);
+			this->labelAutre->Name = L"labelAutre";
+			this->labelAutre->Size = System::Drawing::Size(109, 17);
+			this->labelAutre->TabIndex = 19;
+			this->labelAutre->Text = L"Autre démarche";
+			// 
+			// AutreD3
+			// 
+			this->AutreD3->AutoSize = true;
+			this->AutreD3->Location = System::Drawing::Point(110, 34);
+			this->AutreD3->Name = L"AutreD3";
+			this->AutreD3->Size = System::Drawing::Size(45, 17);
+			this->AutreD3->TabIndex = 18;
+			this->AutreD3->TabStop = true;
+			this->AutreD3->Text = L"+5%";
+			this->AutreD3->UseVisualStyleBackColor = true;
+			// 
+			// AutreD2
+			// 
+			this->AutreD2->AutoSize = true;
+			this->AutreD2->Location = System::Drawing::Point(53, 34);
+			this->AutreD2->Name = L"AutreD2";
+			this->AutreD2->Size = System::Drawing::Size(45, 17);
+			this->AutreD2->TabIndex = 17;
+			this->AutreD2->TabStop = true;
+			this->AutreD2->Text = L"+3%";
+			this->AutreD2->UseVisualStyleBackColor = true;
+			// 
+			// AutreD1
+			// 
+			this->AutreD1->AutoSize = true;
+			this->AutreD1->Location = System::Drawing::Point(2, 34);
+			this->AutreD1->Name = L"AutreD1";
+			this->AutreD1->Size = System::Drawing::Size(45, 17);
+			this->AutreD1->TabIndex = 16;
+			this->AutreD1->TabStop = true;
+			this->AutreD1->Text = L"+2%";
+			this->AutreD1->UseVisualStyleBackColor = true;
+			// 
+			// Simuler
+			// 
+			this->Simuler->Location = System::Drawing::Point(834, 283);
+			this->Simuler->Name = L"Simuler";
+			this->Simuler->Size = System::Drawing::Size(75, 23);
+			this->Simuler->TabIndex = 22;
+			this->Simuler->Text = L"Simuler";
+			this->Simuler->UseVisualStyleBackColor = true;
+			this->Simuler->Click += gcnew System::EventHandler(this, &Stats::Simuler_Click);
+			// 
 			// Stats
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(766, 315);
-			this->Controls->Add(this->dataGridView1);
+			this->ClientSize = System::Drawing::Size(995, 315);
+			this->Controls->Add(this->Simuler);
+			this->Controls->Add(this->groupBox3);
+			this->Controls->Add(this->groupBox2);
+			this->Controls->Add(this->textBoxTVA);
+			this->Controls->Add(this->labelTVA);
+			this->Controls->Add(this->groupBox1);
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->labelNom);
 			this->Controls->Add(this->textBoxNom);
+			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->labelTitre);
 			this->Controls->Add(this->radioButtonSimulation);
 			this->Controls->Add(this->radioButtonAStock);
@@ -265,8 +512,15 @@ namespace statistique {
 			this->Name = L"Stats";
 			this->Text = L"Stats";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			this->groupBox1->ResumeLayout(false);
+			this->groupBox1->PerformLayout();
+			this->groupBox2->ResumeLayout(false);
+			this->groupBox2->PerformLayout();
+			this->groupBox3->ResumeLayout(false);
+			this->groupBox3->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
+
 
 		}
 #pragma endregion
@@ -336,5 +590,17 @@ namespace statistique {
 	private: System::Void radioButtonSimulation_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 		labelNom->ResetText();
 	}
+
+    private: System::Void Simuler_Click(System::Object^ sender, System::EventArgs^ e) {
+			   labelNom->ResetText();
+			   Service::GestionStats^ GestionStats = gcnew Service::GestionStats;
+			   float TVA;
+			   if (textBoxTVA->Text == "") {
+				   TVA = 0;
+			   }
+			   else { TVA = float::Parse(textBoxTVA->Text); }
+			   dataGridView1->DataSource = GestionStats->Simuler(TVA, Marge1->Checked, Marge2->Checked, Marge3->Checked, Remise1->Checked, Remise2->Checked, AutreD1->Checked, AutreD2->Checked, AutreD3->Checked);
+			   dataGridView1->DataMember = "stats";
+		   }
 	};
 }

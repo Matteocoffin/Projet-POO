@@ -24,5 +24,6 @@ namespace Service {
 	public: DataSet^ MVendu();
 	public: DataSet^ VCommercial();
 	public: DataSet^ VStock();
+	public: DataSet^ Simuler(float, bool, bool, bool, bool, bool, bool, bool, bool);
 	};
 }
