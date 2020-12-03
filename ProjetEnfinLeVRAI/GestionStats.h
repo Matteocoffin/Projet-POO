@@ -1,6 +1,7 @@
 #pragma once
 #include "mapStats.h" 
 #include "connexion.h"
+#include "Assert.h"
 
 
 
@@ -11,6 +12,7 @@ namespace Service {
 	private: MapStats^ Requete;
 	private: DataSet^ dataset;
 	private: connexion^ cad;
+	private: assert^ teste;
 
 	public: GestionStats();
 

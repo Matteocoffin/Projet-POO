@@ -206,6 +206,9 @@
     <EmbeddedResource Include="ModePersonnel.resx">
       <DependentUpon>ModePersonnel.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ModeStatistique.resx">
+      <DependentUpon>ModeStatistique.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ModeStock.resx">
       <DependentUpon>ModeStock.h</DependentUpon>
     </EmbeddedResource>

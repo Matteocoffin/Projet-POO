@@ -40,3 +40,23 @@ void assert::assertEqualString(String^ exemple, String^ affirmation)
 		MessageBox::Show("erreur de valeur commune");
 	}
 }
+
+void assert::assertDataSupZero(float test)
+{
+	if (test > 0) {
+		MessageBox::Show("Juste");
+	}
+	else {
+		MessageBox::Show("erreur de valeur commune");
+	}
+}
+
+void assert::assertDataEqualZero(float test)
+{
+	if (test == 0) {
+		MessageBox::Show("Juste");
+	}
+	else {
+		MessageBox::Show("erreur de valeur commune");
+	}
+}

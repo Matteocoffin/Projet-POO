@@ -216,12 +216,12 @@ namespace stock {
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView1->Location = System::Drawing::Point(256, 43);
 			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(240, 368);
+			this->dataGridView1->Size = System::Drawing::Size(458, 368);
 			this->dataGridView1->TabIndex = 14;
 			// 
 			// button5
 			// 
-			this->button5->Location = System::Drawing::Point(343, 14);
+			this->button5->Location = System::Drawing::Point(439, 14);
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(75, 23);
 			this->button5->TabIndex = 28;
@@ -297,7 +297,7 @@ namespace stock {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(548, 530);
+			this->ClientSize = System::Drawing::Size(771, 530);
 			this->Controls->Add(this->textBox7);
 			this->Controls->Add(this->label8);
 			this->Controls->Add(this->textBox6);

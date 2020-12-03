@@ -6,12 +6,14 @@ namespace Service {
     GestionStats::GestionStats() {
         this->Requete = gcnew MapStats();
         this->cad = gcnew connexion();
+        this->teste = gcnew assert();
     }
 
 
     DataSet^ Service::GestionStats::Lier(String^ Requete) {
         this->dataset = gcnew DataSet();
         this->dataset = this->cad->getRows(Requete, "stats");
+        //this->teste->assertEqualString(Requete, "SELECT AVG(Total_TTC) as panierMoyen from Commande");
         return this->dataset;
     }
 
@@ -80,6 +82,9 @@ namespace Service {
         float Marge = extraire(TabMarge, TabBMarge);
         float Reduc = extraire(TabRemise, TabBRemise);
         float Autre = extraire(TabAutre, TabBAutre);
+        //this->teste->assertEqualFloat(Marge,1.05);
+        //this->teste->assertEqualFloat(Reduc, 0.95);
+        //this->teste->assertEqualFloat(Autre, 1.02);
 
         int NTVA = 1;
         if (TVA != 0) {

@@ -38,16 +38,20 @@ namespace Service {
 	void Service::GestionStock::UpdateStock(String^ dataname)
 	{
 		this->cad->getRows(this->Stock->UPDATE(), dataname);
+		//this->teste->assertEqualString(this->Stock->UPDATE(),"Update dbo.Article set Nom_article=Banane,Quantite_nature=10 WHERE Id_article=1");
 		this->cad->getRows(this->Stock->UPDATECatalogue(), dataname);
+		//this->teste->assertEqualString(this->Stock->UPDATECatalogue(),"insert into dbo.Catalogue values(5,1000,400,0.2,1)");
 		MessageBox::Show("Utilisateur mis à jour");
 	}
 
 	void Service::GestionStock::InsertStock(String^ dataname)
 	{
 	    this->cad->getRows(this->Stock->INSERT(), dataname);
+		//this->teste->assertEqualString(this->Stock->INSERT(),"insert into dbo.Article values('Robe','1')");
 		this->cad = gcnew connexion(this->Stock->SELECTlast(), 3);
 		int id_Article = this->cad->GetIDINT();
 		this->cad->getRows(this->Stock->INSERTCatalogue(id_Article), dataname);
+		//this->teste->assertEqualString(this->Stock->INSERTCatalogue(id_Article),"insert into dbo.Catalogue values(50," 500,400,0.2,1)");
 		//this->teste->assertEqual(id_Article,10);
 		MessageBox::Show("Succes creation Stock");
 	}
@@ -65,7 +69,9 @@ namespace Service {
 	void Service::GestionStock::supprimer()
 	{
 		this->cad->getRows(this->Stock->DELETECatalogue(), "Client");
+		//this->teste->assertEqual(this->Stock->DELETECatalogue(),"delete from Catalogue WHERE Id_article=1");
 		this->cad->getRows(this->Stock->DELETE(), "Client");
+		//this->teste->assertEqual(this->Stock->DELETE(),"delete from Article WHERE Id_article=1");
 		MessageBox::Show("Stock Supprimer");
 	}
 }

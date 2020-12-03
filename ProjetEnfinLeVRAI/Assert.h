@@ -21,4 +21,6 @@ public:
 	void assertEqualFloat(float, float);
 	void assertEqual(int, int);
 	void assertEqualString(String^, String^);
+	void assertDataSupZero(float);
+	void assertDataEqualZero(float);
 };
