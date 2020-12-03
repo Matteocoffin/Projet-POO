@@ -2,8 +2,8 @@
 #include "ModeClient.h"
 #include "ModePersonnel.h"
 #include "ModeStock.h"
+#include "ModeStatistique.h"
 #include "ModeCommande.h"
-
 
 
 namespace first {
@@ -162,14 +162,17 @@ private: System::Void radioButton1_CheckedChanged(System::Object^ sender, System
 	   //stock
 private: System::Void radioButton3_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	this->Hide();
-	stock::ModeStock quatre_form;
-	quatre_form.ShowDialog();
+	stock::ModeStock cinq_form;
+	cinq_form.ShowDialog();
 	this->Show();
 }
 
 	   //statistique
 private: System::Void radioButton4_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-	
+	this->Hide();
+	statistique::Stats six_form;
+	six_form.ShowDialog();
+	this->Show();
 }
 
 	   //client

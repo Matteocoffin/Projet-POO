@@ -126,12 +126,14 @@
     <ClCompile Include="GestionClient.cpp" />
     <ClCompile Include="GestionCommande.cpp" />
     <ClCompile Include="GestionPersonnel.cpp" />
+    <ClCompile Include="GestionStats.cpp" />
     <ClCompile Include="GestionStock.cpp" />
     <ClCompile Include="MapAdresse.cpp" />
     <ClCompile Include="MapClient.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MapCommande.cpp" />
     <ClCompile Include="MapPersonnel.cpp" />
+    <ClCompile Include="MapStats.cpp" />
     <ClCompile Include="MapStock.cpp" />
     <ClCompile Include="MyForm.cpp" />
   </ItemGroup>
@@ -152,12 +154,14 @@
     <ClInclude Include="GestionClient.h" />
     <ClInclude Include="GestionCommande.h" />
     <ClInclude Include="GestionPersonnel.h" />
+    <ClInclude Include="GestionStats.h" />
     <ClInclude Include="GestionStock.h" />
     <ClInclude Include="MapAdresse.h" />
     <ClInclude Include="MapClient.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MapCommande.h" />
     <ClInclude Include="MapPersonnel.h" />
+    <ClInclude Include="MapStats.h" />
     <ClInclude Include="MapStock.h" />
     <ClInclude Include="ModeClient.h">
       <FileType>CppForm</FileType>
@@ -166,6 +170,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ModePersonnel.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ModeStatistique.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ModeStock.h">
