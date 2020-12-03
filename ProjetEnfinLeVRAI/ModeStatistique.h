@@ -274,17 +274,28 @@ namespace statistique {
 
 
 	private: System::Void radioButtonMois_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-		labelNom->Text = "n° Mois :";
-		String^ Mois = textBoxNom->Text;
-		Service::GestionStats^ GestionStats1 = gcnew Service::GestionStats();
-		dataGridView1->DataSource = GestionStats1->Mois(Mois);
-		dataGridView1->DataMember = "stats";
+		if (textBoxNom->Text == "") {
+			MessageBox::Show("Inserer valeur dans le champ");
+		}
+		else {
+			labelNom->Text = "n° Mois :";
+			String^ Mois = textBoxNom->Text;
+			Service::GestionStats^ GestionStats1 = gcnew Service::GestionStats();
+			dataGridView1->DataSource = GestionStats1->Mois(Mois);
+			dataGridView1->DataMember = "stats";
+		}
+		
 	}
 	private: System::Void radioButtonClient_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
-		String^ Nom = textBoxNom->Text;
-		Service::GestionStats^ GestionStats1 = gcnew Service::GestionStats();
-		dataGridView1->DataSource = GestionStats1->Client(Nom);
-		dataGridView1->DataMember = "stats";
+		if (textBoxNom->Text == "") {
+			MessageBox::Show("Inserer valeur dans le champ");
+		}
+		else {
+			String^ Nom = textBoxNom->Text;
+			Service::GestionStats^ GestionStats1 = gcnew Service::GestionStats();
+			dataGridView1->DataSource = GestionStats1->Client(Nom);
+			dataGridView1->DataMember = "stats";
+		}
 	}
 	private: System::Void PanierMoyen_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 		labelNom->ResetText();

@@ -17,8 +17,8 @@ ref class MapAdresse
 private: int id;
 private: String^ Adresse;
 private: String^ AdresseFacture;
-private: String^ Pays;
-private: String^ PaysFacture;
+private: String^ ville;
+private: String^ villeFacture;
 private: String^ Cp;
 private: int id_client;
 private: void ini_cp();

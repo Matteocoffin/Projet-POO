@@ -2,7 +2,7 @@
 
 
 connexion::connexion() {
-	connectionString = "Data Source = .; Initial Catalog = Projetbdd; Integrated Security = True";
+	connectionString = "Data Source = .; Initial Catalog = ProjetFinal; Integrated Security = True";
 	this->sqlConnection = gcnew SqlConnection(this->connectionString);
 	this->cmd = gcnew SqlCommand(this->requeteSQL, this->sqlConnection);
 	this->cmd->CommandType = CommandType::Text;
@@ -17,7 +17,7 @@ connexion::connexion() {
 
 connexion::connexion(String^ requete, int etape)
 {
-	connectionString = "Data Source = .; Initial Catalog = Projetbdd; Integrated Security = True";
+	connectionString = "Data Source = .; Initial Catalog = ProjetFinal; Integrated Security = True";
 	this->sqlConnection = gcnew SqlConnection(this->connectionString);
 	this->cmd = gcnew SqlCommand(requete, this->sqlConnection);
 	this->cmd->CommandType = CommandType::Text;

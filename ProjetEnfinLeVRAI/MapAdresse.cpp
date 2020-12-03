@@ -2,16 +2,16 @@
 
 void MapAdresse::ini_cp()
 {
-	if (Pays == "Bordeaux") {
+	if (ville == "Bordeaux") {
 		this->Cp = "33000";
 	}
-	if (Pays == "Eysines") {
+	if (ville == "Eysines") {
 		this->Cp = "33320";
 	}
-	if (Pays == "Paris") {
+	if (ville == "Paris") {
 		this->Cp = "75001";
 	}
-	if (Pays == "Lyon") {
+	if (ville == "Lyon") {
 		this->Cp = "69001";
 	}
 }
@@ -25,18 +25,18 @@ MapAdresse::MapAdresse(int id)
 	this->id = id;
 }
 
-MapAdresse::MapAdresse(String^ adresse, String^ pays)
+MapAdresse::MapAdresse(String^ adresse, String^ ville)
 {
 	this->Adresse = adresse;
-	this->Pays = pays;
+	this->ville = ville;
 	ini_cp();
 }
 
-MapAdresse::MapAdresse(int id, String^ adresse, String^ pays)
+MapAdresse::MapAdresse(int id, String^ adresse, String^ ville)
 {
 	this->id = id;
 	this->Adresse = adresse;
-	this->Pays = pays;
+	this->ville = ville;
 	ini_cp();
 }
 
@@ -52,7 +52,7 @@ String^ MapAdresse::SELECT(void)
 
 String^ MapAdresse::UPDATE(void)
 {
-	return "Update dbo.Adresse set Adresse='" + Adresse + "',Pays='" + Pays + "',Cp='" + Cp + "' WHERE id_adresse=" + id + "";
+	return "Update dbo.Adresse set Adresse='" + Adresse + "',Ville='" + ville + "',Cp='" + Cp + "' WHERE id_adresse=" + id + "";
 }
 
 String^ MapAdresse::DELETE(void)
@@ -77,7 +77,7 @@ String^ MapAdresse::DeleteClientFacture(int id_client)
 
 String^ MapAdresse::INSERT(void)
 {
-	return "insert into dbo.Adresse values('" + Adresse + "','" + Pays + "','" + Cp + "')";
+	return "insert into dbo.Adresse values('" + Adresse + "','" + ville + "','" + Cp + "')";
 }
 
 String^ MapAdresse::InsertPersonnel(int id_personnel,int id) {
