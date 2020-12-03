@@ -33,5 +33,6 @@ public:
     String^ UPDATECatalogue(void);
     virtual String^ DELETE(void) override;
     String^ DELETECatalogue(void);
+    int getID();
 };
 

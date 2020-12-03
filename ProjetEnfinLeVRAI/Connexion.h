@@ -74,6 +74,7 @@ public:
 	int GetIdDateRecep() { return id_date_reception; }
 	int GetIdFacture() { return id_facture; }
 	int GetIDINT();
+	int GetINTAdresse();
 	float GetFloat();
 };
 

@@ -70,3 +70,8 @@ String^ MapStock::DELETECatalogue(void)
 {
     return "delete from Catalogue WHERE Id_article=" + id + "";
 }
+
+int MapStock::getID()
+{
+    return id;
+}

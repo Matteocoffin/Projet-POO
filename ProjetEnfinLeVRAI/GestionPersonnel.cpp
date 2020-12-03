@@ -51,8 +51,14 @@ namespace Service {
 
 	void Service::GestionPersonnel::UpdatePersonnel(String^ dataname)
 	{
+		this->cad = gcnew connexion(this->personnel->SELECT(), 4);
+		int id = this->cad->GetINTAdresse();
+		this->adresse->setID(id);
+		//this->teste->assertEqual(id, 6);
 		this->cad->getRows(this->personnel->UPDATE(), dataname);
+		//this->teste->assertEqualString(this->personnel->UPDATE(),"Update dbo.Personnel set Nom_personnel='Mouga',Prenom_personnel='Xavier',date_embauche='2004-05-16' WHERE Id_personnel=5");
 		this->cad->getRows(this->adresse->UPDATE(), dataname);
+		//this->teste->assertEqualString(this->adresse->UPDATE(),"Update dbo.Adresse set Adresse='25 rue Kokotier',Ville='Bordeaux',Cp='33000' WHERE id_adresse=6");
 		MessageBox::Show("Utilisateur mis à jour");
 	}
 

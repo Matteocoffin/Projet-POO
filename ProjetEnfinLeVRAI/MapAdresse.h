@@ -38,5 +38,6 @@ public:
 	String^ InsertPersonnel(int,int);
 	String^ InsertClient(int, int);
 	String^ InsertClientFacture(int, int);
+	void setID(int);
 };
 

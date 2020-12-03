@@ -90,6 +90,7 @@ void connexion::initializeToGetPersonnelDate() {
 	date = test2.ToString();
 	rue = dr->GetString(8);
 	Ville = dr->GetString(9);
+	id_date = dr->GetInt32(6);
 }
 
 void connexion::initializeToGetClientDate()
@@ -103,6 +104,7 @@ void connexion::initializeToGetClientDate()
 	date = test2.ToString();
 	rue = dr->GetString(8);
 	Ville = dr->GetString(9);
+	id_date = dr->GetInt32(6);
 }
 
 void connexion::initializeToGetHuman() {
@@ -210,6 +212,11 @@ String^ connexion::GetPrenom()
 int connexion::GetIDINT()
 {
 	return id_entier;
+}
+
+int connexion::GetINTAdresse()
+{
+	return id_date;
 }
 
 float connexion::GetFloat() {

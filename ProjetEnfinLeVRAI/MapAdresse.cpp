@@ -91,3 +91,7 @@ String^ MapAdresse::InsertClient(int id_client, int id) {
 String^ MapAdresse::InsertClientFacture(int id_client, int id) {
 	return "insert into dbo.AdresseFacturer values(" + id_client + "," + id + ")";
 }
+
+void MapAdresse::setID(int id) {
+	this->id = id;
+}

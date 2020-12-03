@@ -64,9 +64,16 @@ namespace Service {
 
 	void Service::GestionClient::UpdateClient(String^ dataname)
 	{
+		this->cad = gcnew connexion(this->client->SELECT(), 4);
+		int id = this->cad->GetINTAdresse();
+		this->adresse->setID(id);
+		//this->teste->assertEqual(id, 6);
 		this->cad->getRows(this->client->UPDATE(), dataname);
+		//this->teste->assertEqualString(this->client->UPDATE(),"Update dbo.Client set Nom_client='Coffus',Prenom_client='Mattus',date_anniversaire='2001-01-20',Id_personnel=7 WHERE Id_client=14");
 		this->cad->getRows(this->adresse->UPDATE(), dataname);
+		//this->teste->assertEqualString(this->adresse->UPDATE(),"Update dbo.Adresse set Adresse='2 rue de riz',Ville='Eysiness',Cp='33320' WHERE id_adresse=6");
 		this->cad->getRows(this->adresseFacture->UPDATE(), dataname);
+		//this->teste->assertEqualString(adresseFacture->UPDATE(),"Update dbo.Adresse set Adresse='8 rue de riz',Ville='Eysiness',Cp='33320' WHERE id_adresse=6");
 		MessageBox::Show("Utilisateur mis à jour");
 	}
 
@@ -141,7 +148,6 @@ namespace Service {
 		this->cad = gcnew connexion(this->client->SELECT(), 5);
 		int id_Client = this->cad->GetIDINT();
 		//this->teste->assertEqual(id_Client, 21);
-		//this->teste->assertEqualString(this->cad->GetNom(), "Gorge");
 		this->cad->getRows(this->adresse->DeleteClient(id_Client), "Client");
 		//this->teste->assertEqualString(this->adresse->DeleteClient(id_Client),"delete from dbo.AdresseClient WHERE id_client=5");
 		this->cad->getRows(this->adresse->DeleteClientFacture(id_Client), "Client");

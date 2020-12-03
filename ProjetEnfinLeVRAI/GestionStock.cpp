@@ -37,6 +37,8 @@ namespace Service {
 
 	void Service::GestionStock::UpdateStock(String^ dataname)
 	{
+		int id = this->Stock->getID();
+		//this->teste->assertEqual(id, 1);
 		this->cad->getRows(this->Stock->UPDATE(), dataname);
 		//this->teste->assertEqualString(this->Stock->UPDATE(),"Update dbo.Article set Nom_article=Banane,Quantite_nature=10 WHERE Id_article=1");
 		this->cad->getRows(this->Stock->UPDATECatalogue(), dataname);
