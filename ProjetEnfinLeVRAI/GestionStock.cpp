@@ -70,6 +70,8 @@ namespace Service {
 
 	void Service::GestionStock::supprimer()
 	{
+		int id = this->Stock->getID();
+		//this->teste->assertEqual(id, 1);
 		this->cad->getRows(this->Stock->DELETECatalogue(), "Client");
 		//this->teste->assertEqual(this->Stock->DELETECatalogue(),"delete from Catalogue WHERE Id_article=1");
 		this->cad->getRows(this->Stock->DELETE(), "Client");

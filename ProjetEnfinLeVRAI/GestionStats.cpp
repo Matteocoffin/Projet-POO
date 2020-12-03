@@ -24,6 +24,7 @@ namespace Service {
 
     DataSet^ Service::GestionStats::Mois(String^ NomMois)
     {
+        //this->teste->assertEqualString(NomMois,"4");
         return Lier(this->Requete->Mois(NomMois));
     }
 
@@ -34,6 +35,7 @@ namespace Service {
 
     DataSet^ Service::GestionStats::Client(String^ NomClient)
     {
+        //this->teste->assertEqualString(NomClient,"Fils");
         return Lier(this->Requete->Client(NomClient));
     }
 
@@ -85,12 +87,14 @@ namespace Service {
         //this->teste->assertEqualFloat(Marge,1.05);
         //this->teste->assertEqualFloat(Reduc, 0.95);
         //this->teste->assertEqualFloat(Autre, 1.02);
+        //this->teste->assertEqualFloat(TVA, 1.5);
 
         int NTVA = 1;
         if (TVA != 0) {
             NTVA = 0;
+            //this->teste->assertDataEqualZero(NTVA);
         }
-
+        
         return Lier(this->Requete->Simuler(NTVA, TVA, Marge, Reduc, Autre));
     }
 

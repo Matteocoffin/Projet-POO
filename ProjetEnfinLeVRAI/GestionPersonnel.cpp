@@ -119,7 +119,7 @@ namespace Service {
 		this->cad->getRows(this->personnel->DELETE(), "Client");
 		//this->teste->assertEqualString(this->personnel->DELETE(),"delete from Personnel WHERE Id_personnel=2");
 		this->cad->getRows(this->adresse->DELETE(), "Client");
-		//this->teste->assertEqualString(this->adresse->DELETE(),"delete from dbo.AdresseClient WHERE id_client=4");
+		//this->teste->assertEqualString(this->adresse->DELETE(),"delete from dbo.Adresse WHERE id_adresse=4");
 		MessageBox::Show("Personnel Supprimer");
 	}
 	void GestionPersonnel::setID_Personnel(int i)
