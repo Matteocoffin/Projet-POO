@@ -1,5 +1,6 @@
 #pragma once
 #include "Map.h"
+#include "Assert.h"
 
 using namespace System;
 using namespace System::ComponentModel;
@@ -25,6 +26,7 @@ private: String^ moyen;
 private: double tva;
 private: float TTC;
 private: String^ nomSociete;
+private: assert^ teste;
 public:
 	
 	MapCommande(void);

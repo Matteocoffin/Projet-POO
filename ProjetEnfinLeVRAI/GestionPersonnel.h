@@ -2,6 +2,7 @@
 #include "Connexion.h"
 #include "MapPersonnel.h"
 #include "MapAdresse.h"
+#include "Assert.h"
 
 
 namespace Service {
@@ -12,6 +13,7 @@ namespace Service {
 	private:DataSet^ ds;
 	private: MapAdresse^ adresse;
 	private: int securite;
+	private: assert^ teste;
 	public:
 		int static id_Personnel;
 		GestionPersonnel();

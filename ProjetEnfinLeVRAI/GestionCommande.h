@@ -1,12 +1,15 @@
 #pragma once
 #include "Connexion.h"
 #include "MapCommande.h"
+#include "Assert.h"
+
 namespace Service {
 	ref class GestionCommande
 	{
 	private:connexion^ cad;
 	private:MapCommande^ commande;
 	private:DataSet^ ds;
+	private:assert^ teste;
 	public:
 		int static id_commande;
 		GestionCommande();

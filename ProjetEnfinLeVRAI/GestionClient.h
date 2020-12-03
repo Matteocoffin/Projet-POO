@@ -2,6 +2,7 @@
 #include "Connexion.h"
 #include "MapClient.h"
 #include "MapAdresse.h"
+#include "Assert.h"
 
 namespace Service {
 	ref class GestionClient
@@ -13,6 +14,7 @@ namespace Service {
 	private: MapAdresse ^ adresse;
 	private: MapAdresse^ adresseFacture;
 	private: int securite;
+	private: assert^ teste;
 	public:
 		int static id_Client;
 		GestionClient();

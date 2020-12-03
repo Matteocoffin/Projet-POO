@@ -17,6 +17,7 @@ MapCommande::MapCommande(int id_C, String^ dateCo, String^ dateEnv, String^ date
     this->date_reception = dateRec;
     this->moyen = moyen;
     this->nomSociete = societe;
+    this->teste = gcnew assert();
     
 }
 
@@ -147,6 +148,8 @@ String^ MapCommande::SELECTTVA(int id_Commande)
 void MapCommande::calculTVA(float tva,int nb,int ht) {
     this->tva = 0.2;
     this->TTC = ht + ht * this->tva;
+    //this->teste->assertEqualFloat(tva, 0.2);
+    //this->teste->assertEqual(TTC, 150);
 }
 
 String^ MapCommande::UPDATEToInsertNom(int id_commande,String^ name)
@@ -193,10 +196,15 @@ String^ MapCommande::generateName(int id)
 {
     
     String^ ComposantPrenom = Prenom->Substring(0, 2);
+    //this->teste->assertEqualString(ComposantPrenom,"Go");
     String^ ComposantNom = Nom->Substring(0, 2);
+    //this->teste->assertEqualString(ComposantNom, "Fa");
     String^ ComposantDate = (date_commande->ToString())->Substring(6);
+    //this->teste->assertEqualString(ComposantDate, "2012");
     String^ ComposantVille = viLLe->Substring(0, 3);
+    //this->teste->assertEqualString(ComposantVille, "Bor");
     String^ ComposantID = id.ToString();
+    //this->teste->assertEqualString(ComposantID, "7");
     String^ name = ComposantPrenom + ComposantNom + ComposantDate + ComposantVille + ComposantID;
     return name;
    

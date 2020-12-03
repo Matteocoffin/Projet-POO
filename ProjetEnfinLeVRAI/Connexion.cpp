@@ -80,6 +80,7 @@ DataSet^ connexion::getRows(String^ requeteSQL, String^ dataTableName) {
 }
 
 void connexion::initializeToGetPersonnelDate() {
+
 	int test = dr->GetInt32(0);
 	id_entier = test;
 	id = test.ToString();
