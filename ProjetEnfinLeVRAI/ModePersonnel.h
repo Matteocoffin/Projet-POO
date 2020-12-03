@@ -406,7 +406,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	else {
 		int id = Int32::Parse(textBox1->Text);
 		Service::GestionPersonnel^ GestionPersonnel1 = gcnew Service::GestionPersonnel(id);
-		GestionPersonnel1->supprimer();
+		GestionPersonnel1->supprimer(id);
 	}
 }
 

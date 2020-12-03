@@ -13,7 +13,7 @@ namespace Service {
     DataSet^ Service::GestionStats::Lier(String^ Requete) {
         this->dataset = gcnew DataSet();
         this->dataset = this->cad->getRows(Requete, "stats");
-        //this->teste->assertEqualString(Requete, "SELECT AVG(Total_TTC) as panierMoyen from Commande");
+        //this->teste->assertEqualString(Requete, "SELECT AVG(150) as panierMoyen from Commande");
         return this->dataset;
     }
 

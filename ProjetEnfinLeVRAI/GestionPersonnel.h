@@ -27,7 +27,7 @@ namespace Service {
 		void AjouterAdresse();
 		DataSet^ SelectPersonnel(String^);
 		void AjouterDirigeant(int);
-		void supprimer();
+		void supprimer(int);
 		void setID_Personnel(int);
 		String^ getID() { return cad->GetID(); }
 		String^ getNom() { return cad->GetNom(); }

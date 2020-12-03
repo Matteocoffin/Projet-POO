@@ -105,12 +105,9 @@ namespace Service {
 
 	
 
-	void Service::GestionPersonnel::supprimer()
+	void Service::GestionPersonnel::supprimer(int id_personnel)
 	{
-		this->cad = gcnew connexion(this->personnel->SELECT(), 4);
-		int id_personnel = this->cad->GetIDINT();
-		//this->teste->assertEqual(id_personnel, 21);
-		//this->teste->assertEqualString(this->cad->GetNom(), "Gorge");
+		
 		this->cad->getRows(this->adresse->DeletePersonnel(id_personnel), "Client");
 		//this->teste->assertEqualString(this->adresse->DeletePersonnel(id_personnel),"delete from dbo.AdressePersonnel WHERE id_personnel=1");
 		this->cad->getRows(this->personnel->DELETE(), "Client");
