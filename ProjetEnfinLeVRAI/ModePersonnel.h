@@ -341,13 +341,18 @@ namespace personnel {
 #pragma endregion
 		//creer
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	String^ nom = textBox2->Text;
-	String^ prenom = textBox3->Text;
-	String^ date = textBox4->Text;
-	String^ adresse = textBox5->Text;
-	Object^ selectedItem = comboBox1->SelectedItem;
-	Service::GestionPersonnel^ GestionPersonnel1 = gcnew Service::GestionPersonnel(nom, prenom, date,adresse,selectedItem->ToString());
-	GestionPersonnel1->InsertPersonnel("personnel");
+	if (textBox2->Text == "") {
+		MessageBox::Show("Inserer valeur dans les champs");
+	}
+	else {
+		String^ nom = textBox2->Text;
+		String^ prenom = textBox3->Text;
+		String^ date = textBox4->Text;
+		String^ adresse = textBox5->Text;
+		Object^ selectedItem = comboBox1->SelectedItem;
+		Service::GestionPersonnel^ GestionPersonnel1 = gcnew Service::GestionPersonnel(nom, prenom, date, adresse, selectedItem->ToString());
+		GestionPersonnel1->InsertPersonnel("personnel");
+	}
 }
 	   //Liste des Personnel
 private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -358,54 +363,81 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 
 	   //Select Personnel
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-	int id = Int32::Parse(textBox1->Text);
-	Service::GestionPersonnel^ GestionPersonnel1 = gcnew Service::GestionPersonnel(id);
-	dataGridView1->DataSource = GestionPersonnel1->SelectPersonnel("personnel");
-	dataGridView1->DataMember = "personnel";
-	textBox2->Text = GestionPersonnel1->getNom();
-	textBox3->Text = GestionPersonnel1->getPrenom();
-	textBox4->Text = GestionPersonnel1->getDate();
-	textBox5->Text = GestionPersonnel1->getRue();
-	int index = comboBox1->FindString(GestionPersonnel1->getVille());
-	comboBox1->SelectedIndex = index;
+	if (textBox1->Text == "") {
+		MessageBox::Show("Inserer valeur dans les champs");
+	}
+	else {
+		int id = Int32::Parse(textBox1->Text);
+		Service::GestionPersonnel^ GestionPersonnel1 = gcnew Service::GestionPersonnel(id);
+		dataGridView1->DataSource = GestionPersonnel1->SelectPersonnel("personnel");
+		dataGridView1->DataMember = "personnel";
+		textBox2->Text = GestionPersonnel1->getNom();
+		textBox3->Text = GestionPersonnel1->getPrenom();
+		textBox4->Text = GestionPersonnel1->getDate();
+		textBox5->Text = GestionPersonnel1->getRue();
+		int index = comboBox1->FindString(GestionPersonnel1->getVille());
+		comboBox1->SelectedIndex = index;
+	}
+	
 }
 
 	   // Modifier les valeurs
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
-	int id = Int32::Parse(textBox1->Text);
-	String^ nom = textBox2->Text;
-	String^ prenom = textBox3->Text;
-	String^ date = textBox4->Text;
-	String^ adresse = textBox5->Text;
-	Object^ selectedItem = comboBox1->SelectedItem;
-	Service::GestionPersonnel^ GestionPersonnel1 = gcnew Service::GestionPersonnel(id,nom, prenom, date, adresse, selectedItem->ToString());
-	GestionPersonnel1->UpdatePersonnel("personnel");
+	if (textBox1->Text == "") {
+		MessageBox::Show("Inserer valeur dans les champs");
+	}
+	else {
+		int id = Int32::Parse(textBox1->Text);
+		String^ nom = textBox2->Text;
+		String^ prenom = textBox3->Text;
+		String^ date = textBox4->Text;
+		String^ adresse = textBox5->Text;
+		Object^ selectedItem = comboBox1->SelectedItem;
+		Service::GestionPersonnel^ GestionPersonnel1 = gcnew Service::GestionPersonnel(id, nom, prenom, date, adresse, selectedItem->ToString());
+		GestionPersonnel1->UpdatePersonnel("personnel");
+	}
 }
 
 	   //supprimer
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	int id = Int32::Parse(textBox1->Text);
-	Service::GestionPersonnel^ GestionPersonnel1 = gcnew Service::GestionPersonnel(id);
-	GestionPersonnel1->supprimer();
+	if (textBox1->Text == "") {
+		MessageBox::Show("Inserer valeur dans les champs");
+	}
+	else {
+		int id = Int32::Parse(textBox1->Text);
+		Service::GestionPersonnel^ GestionPersonnel1 = gcnew Service::GestionPersonnel(id);
+		GestionPersonnel1->supprimer();
+	}
 }
 
 	   //ajouter adresse
 	private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
-		int id = Int32::Parse(textBox1->Text);
-		Service::GestionPersonnel^ GestionPersonnel1 = gcnew Service::GestionPersonnel(id);
-		GestionPersonnel1->setID_Personnel(id);
-		this->Hide();
-		fenetreAdresse::AdresseAjout second_form;
-		second_form.ShowDialog();
-		this->Show();
+		if (textBox1->Text == "") {
+			MessageBox::Show("Inserer valeur dans les champs");
+		}
+		else {
+			int id = Int32::Parse(textBox1->Text);
+			Service::GestionPersonnel^ GestionPersonnel1 = gcnew Service::GestionPersonnel(id);
+			GestionPersonnel1->setID_Personnel(id);
+			this->Hide();
+			fenetreAdresse::AdresseAjout second_form;
+			second_form.ShowDialog();
+			this->Show();
+		}
+		
 	}
 
 		   //ajouter dirigeant
 private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
-	int id = Int32::Parse(textBox1->Text);
-	Service::GestionPersonnel^ GestionPersonnel1 = gcnew Service::GestionPersonnel(id);
-	int id_P = Int32::Parse(textBox6->Text);
-	GestionPersonnel1->AjouterDirigeant(id_P);
+	if (textBox1->Text == "") {
+		MessageBox::Show("Inserer valeur dans les champs");
+	}
+	else {
+		int id = Int32::Parse(textBox1->Text);
+		Service::GestionPersonnel^ GestionPersonnel1 = gcnew Service::GestionPersonnel(id);
+		int id_P = Int32::Parse(textBox6->Text);
+		GestionPersonnel1->AjouterDirigeant(id_P);
+	}
 }
 
 };

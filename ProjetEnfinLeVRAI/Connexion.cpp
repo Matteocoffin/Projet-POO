@@ -87,8 +87,6 @@ void connexion::initializeToGetPersonnelDate() {
 	Prenom = dr->GetString(2);
 	SqlDateTime test2 = dr->GetDateTime(3);
 	date = test2.ToString();
-	int test3 = dr->GetInt32(4);
-	id_personnel = test3.ToString();
 	rue = dr->GetString(8);
 	Ville = dr->GetString(9);
 }

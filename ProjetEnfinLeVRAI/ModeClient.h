@@ -388,16 +388,21 @@ namespace client {
 #pragma endregion
 		//creer
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	String^ nom = textBox2->Text;
-	String^ prenom = textBox3->Text;
-	String^ date = textBox4->Text;
-	String^ adresse = textBox5->Text;
-	String^ adresseFacture = textBox6->Text;
-	int id_P = Int32::Parse(textBox7->Text);
-	Object^ selectedItem1 = comboBox1->SelectedItem;
-	Object^ selectedItem2 = comboBox2->SelectedItem;
-	Service::GestionClient^ GestionClient1 = gcnew Service::GestionClient(nom, prenom,date,id_P,adresseFacture, selectedItem2->ToString(),adresse, selectedItem1->ToString());
-	GestionClient1->InsertClient("Client");
+	if (textBox2->Text == "") {
+		MessageBox::Show("Inserer valeur dans les champs");
+	}
+	else {
+		String^ nom = textBox2->Text;
+		String^ prenom = textBox3->Text;
+		String^ date = textBox4->Text;
+		String^ adresse = textBox5->Text;
+		String^ adresseFacture = textBox6->Text;
+		int id_P = Int32::Parse(textBox7->Text);
+		Object^ selectedItem1 = comboBox1->SelectedItem;
+		Object^ selectedItem2 = comboBox2->SelectedItem;
+		Service::GestionClient^ GestionClient1 = gcnew Service::GestionClient(nom, prenom, date, id_P, adresseFacture, selectedItem2->ToString(), adresse, selectedItem1->ToString());
+		GestionClient1->InsertClient("Client");
+	}
 }
 
 	   //Liste des clients
@@ -409,74 +414,102 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 
 	   //Select client Livraison
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-	int id = Int32::Parse(textBox1->Text);
-	Service::GestionClient^ GestionClient1 = gcnew Service::GestionClient(id);
-	Service::GestionClient^ GestionClient2 = gcnew Service::GestionClient(id);
-	dataGridView1->DataSource = GestionClient1->SelectClient("Client");
-	dataGridView1->DataMember = "client";
-	textBox2->Text = GestionClient1->getNom();
-	textBox3->Text = GestionClient1->getPrenom();
-	textBox4->Text = GestionClient1->getDate();
-	textBox5->Text = GestionClient1->getRue();
-	textBox7->Text = GestionClient1->getPersonnel();
-	int index1 = comboBox1->FindString(GestionClient1->getVille());
-	comboBox1->SelectedIndex = index1;
-	GestionClient2->SelectClientFacture("Client");
-	textBox6->Text = GestionClient2->getRue();
-	int index2 = comboBox1->FindString(GestionClient2->getVille());
-	comboBox2->SelectedIndex = index2;
+	if (textBox1->Text == "") {
+		MessageBox::Show("Inserer valeur dans les champs");
+	}
+	else {
+		int id = Int32::Parse(textBox1->Text);
+		Service::GestionClient^ GestionClient1 = gcnew Service::GestionClient(id);
+		Service::GestionClient^ GestionClient2 = gcnew Service::GestionClient(id);
+		dataGridView1->DataSource = GestionClient1->SelectClient("Client");
+		dataGridView1->DataMember = "client";
+		textBox2->Text = GestionClient1->getNom();
+		textBox3->Text = GestionClient1->getPrenom();
+		textBox4->Text = GestionClient1->getDate();
+		textBox5->Text = GestionClient1->getRue();
+		textBox7->Text = GestionClient1->getPersonnel();
+		int index1 = comboBox1->FindString(GestionClient1->getVille());
+		comboBox1->SelectedIndex = index1;
+		GestionClient2->SelectClientFacture("Client");
+		textBox6->Text = GestionClient2->getRue();
+		int index2 = comboBox1->FindString(GestionClient2->getVille());
+		comboBox2->SelectedIndex = index2;
+	}
+	
 }
 
 	   //Select client Facture
 private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
-	int id = Int32::Parse(textBox1->Text);
-	Service::GestionClient^ GestionClient1 = gcnew Service::GestionClient(id);
-	Service::GestionClient^ GestionClient2 = gcnew Service::GestionClient(id);
-	GestionClient1->SelectClient("Client");
-	textBox2->Text = GestionClient1->getNom();
-	textBox3->Text = GestionClient1->getPrenom();
-	textBox4->Text = GestionClient1->getDate();
-	textBox5->Text = GestionClient1->getRue();
-	textBox7->Text = GestionClient1->getPersonnel();
-	int index1 = comboBox1->FindString(GestionClient1->getVille());
-	comboBox1->SelectedIndex = index1;
-	dataGridView1->DataSource = GestionClient2->SelectClientFacture("Client");
-	dataGridView1->DataMember = "client";
-	textBox6->Text = GestionClient2->getRue();
-	int index2 = comboBox1->FindString(GestionClient2->getVille());
-	comboBox2->SelectedIndex = index2;
+	if (textBox1->Text == "") {
+		MessageBox::Show("Inserer valeur dans les champs");
+	}
+	else {
+		int id = Int32::Parse(textBox1->Text);
+		Service::GestionClient^ GestionClient1 = gcnew Service::GestionClient(id);
+		Service::GestionClient^ GestionClient2 = gcnew Service::GestionClient(id);
+		GestionClient1->SelectClient("Client");
+		textBox2->Text = GestionClient1->getNom();
+		textBox3->Text = GestionClient1->getPrenom();
+		textBox4->Text = GestionClient1->getDate();
+		textBox5->Text = GestionClient1->getRue();
+		textBox7->Text = GestionClient1->getPersonnel();
+		int index1 = comboBox1->FindString(GestionClient1->getVille());
+		comboBox1->SelectedIndex = index1;
+		dataGridView1->DataSource = GestionClient2->SelectClientFacture("Client");
+		dataGridView1->DataMember = "client";
+		textBox6->Text = GestionClient2->getRue();
+		int index2 = comboBox1->FindString(GestionClient2->getVille());
+		comboBox2->SelectedIndex = index2;
+	}
+	
 }
 
 	   // Modifier les valeurs
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
-	int id = Int32::Parse(textBox1->Text);
-	String^ nom = textBox2->Text;
-	String^ prenom = textBox3->Text;
-	String^ date = textBox4->Text;
-	String^ adresse = textBox5->Text;
-	String^ adresseFacture = textBox6->Text;
-	int id_P = Int32::Parse(textBox7->Text);
-	Object^ selectedItem1 = comboBox1->SelectedItem;
-	Object^ selectedItem2 = comboBox2->SelectedItem;
-	Service::GestionClient^ GestionClient1 = gcnew Service::GestionClient(id, nom, prenom, date, id_P, adresseFacture, selectedItem1->ToString(), adresse, selectedItem2->ToString());
-	GestionClient1->UpdateClient("Client");
+	if (textBox1->Text == "") {
+		MessageBox::Show("Inserer valeur dans les champs");
+	}
+	else {
+		int id = Int32::Parse(textBox1->Text);
+		String^ nom = textBox2->Text;
+		String^ prenom = textBox3->Text;
+		String^ date = textBox4->Text;
+		String^ adresse = textBox5->Text;
+		String^ adresseFacture = textBox6->Text;
+		int id_P = Int32::Parse(textBox7->Text);
+		Object^ selectedItem1 = comboBox1->SelectedItem;
+		Object^ selectedItem2 = comboBox2->SelectedItem;
+		Service::GestionClient^ GestionClient1 = gcnew Service::GestionClient(id, nom, prenom, date, id_P, adresseFacture, selectedItem1->ToString(), adresse, selectedItem2->ToString());
+		GestionClient1->UpdateClient("Client");
+	}
 }
 	   // Supprimer les valeurs
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	int id = Int32::Parse(textBox1->Text);
-	Service::GestionClient^ GestionClient1 = gcnew Service::GestionClient(id);
-	GestionClient1->supprimer();
+	if (textBox1->Text == "") {
+		MessageBox::Show("Inserer valeur dans les champs");
+	}
+	else {
+		int id = Int32::Parse(textBox1->Text);
+		Service::GestionClient^ GestionClient1 = gcnew Service::GestionClient(id);
+		GestionClient1->supprimer();
+	}
+	
 }
 
 	   // Ajouter adresse
 private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
-	int id = Int32::Parse(textBox1->Text);
-	Service::GestionClient^ GestionClient1 = gcnew Service::GestionClient(id);
-	GestionClient1->setID_Client(id);
-	this->Hide();
-	fenetreAdresse::AdresseAjoutClient second_form;
-	second_form.ShowDialog();
-	this->Show();
+	if (textBox1->Text == "") {
+		MessageBox::Show("Inserer valeur dans les champs");
+	}
+	else {
+		int id = Int32::Parse(textBox1->Text);
+		Service::GestionClient^ GestionClient1 = gcnew Service::GestionClient(id);
+		GestionClient1->setID_Client(id);
+		this->Hide();
+		fenetreAdresse::AdresseAjoutClient second_form;
+		second_form.ShowDialog();
+		this->Show();
+	}
 }
 
 };

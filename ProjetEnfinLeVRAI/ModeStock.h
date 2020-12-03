@@ -329,14 +329,20 @@ namespace stock {
 #pragma endregion
 		//creer
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	String^ nom = textBox2->Text;
-	int quantite = Int32::Parse(textBox3->Text);
-	int stock = Int32::Parse(textBox4->Text);
-	int Seuil = Int32::Parse(textBox6->Text);
-	int prix = Int32::Parse(textBox5->Text);
-	float TVA = float::Parse(textBox7->Text);
-	Service::GestionStock^ GestionStock1 = gcnew Service::GestionStock(nom, quantite,stock,Seuil,prix,TVA);
-	GestionStock1->InsertStock("Stock");
+	if (textBox2->Text == "") {
+		MessageBox::Show("Inserer valeur dans les champs");
+	}
+	else {
+		String^ nom = textBox2->Text;
+		int quantite = Int32::Parse(textBox3->Text);
+		int stock = Int32::Parse(textBox4->Text);
+		int Seuil = Int32::Parse(textBox6->Text);
+		int prix = Int32::Parse(textBox5->Text);
+		float TVA = float::Parse(textBox7->Text);
+		Service::GestionStock^ GestionStock1 = gcnew Service::GestionStock(nom, quantite, stock, Seuil, prix, TVA);
+		GestionStock1->InsertStock("Stock");
+	}
+	
 }
 	   //Liste des Stock
 private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -347,36 +353,53 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 
 	   //Select Stock
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-	int id = Int32::Parse(textBox1->Text);
-	Service::GestionStock^ GestionStock1 = gcnew Service::GestionStock(id);
-	dataGridView1->DataSource = GestionStock1->SelectStock("Stock");
-	dataGridView1->DataMember = "Stock";
-	textBox2->Text = GestionStock1->getNom();
-	textBox3->Text = GestionStock1->getQuantite();
-	textBox4->Text = GestionStock1->getStock();
-	textBox5->Text = GestionStock1->getPrix();
-	textBox6->Text = GestionStock1->getSeuil();
-	textBox7->Text = GestionStock1->getTVA();
+	if (textBox1->Text == "") {
+		MessageBox::Show("Inserer valeur dans les champs");
+	}
+	else {
+		int id = Int32::Parse(textBox1->Text);
+		Service::GestionStock^ GestionStock1 = gcnew Service::GestionStock(id);
+		dataGridView1->DataSource = GestionStock1->SelectStock("Stock");
+		dataGridView1->DataMember = "Stock";
+		textBox2->Text = GestionStock1->getNom();
+		textBox3->Text = GestionStock1->getQuantite();
+		textBox4->Text = GestionStock1->getStock();
+		textBox5->Text = GestionStock1->getPrix();
+		textBox6->Text = GestionStock1->getSeuil();
+		textBox7->Text = GestionStock1->getTVA();
+	}
+	
 }
 
 	   // Modifier les valeurs
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
-	int id = Int32::Parse(textBox1->Text);
-	String^ nom = textBox2->Text;
-	int quantite = Int32::Parse(textBox3->Text);
-	int stock = Int32::Parse(textBox4->Text);
-	int Seuil = Int32::Parse(textBox6->Text);
-	int prix = Int32::Parse(textBox5->Text);
-	float TVA = float::Parse(textBox7->Text);
-	Service::GestionStock^ GestionStock1 = gcnew Service::GestionStock(id, nom, quantite, stock, Seuil, prix, TVA);
-	GestionStock1->UpdateStock("Stock");
+	if (textBox1->Text == "") {
+		MessageBox::Show("Inserer valeur dans les champs");
+	}
+	else {
+		int id = Int32::Parse(textBox1->Text);
+		String^ nom = textBox2->Text;
+		int quantite = Int32::Parse(textBox3->Text);
+		int stock = Int32::Parse(textBox4->Text);
+		int Seuil = Int32::Parse(textBox6->Text);
+		int prix = Int32::Parse(textBox5->Text);
+		float TVA = float::Parse(textBox7->Text);
+		Service::GestionStock^ GestionStock1 = gcnew Service::GestionStock(id, nom, quantite, stock, Seuil, prix, TVA);
+		GestionStock1->UpdateStock("Stock");
+	}
+	
 }
 
 	   //supprimer
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	int id = Int32::Parse(textBox1->Text);
-	Service::GestionStock^ GestionStock1 = gcnew Service::GestionStock(id);
-	GestionStock1->supprimer();
+	if (textBox1->Text == "") {
+		MessageBox::Show("Inserer valeur dans les champs");
+	}
+	else {
+		int id = Int32::Parse(textBox1->Text);
+		Service::GestionStock^ GestionStock1 = gcnew Service::GestionStock(id);
+		GestionStock1->supprimer();
+	}
 }
 };
 }

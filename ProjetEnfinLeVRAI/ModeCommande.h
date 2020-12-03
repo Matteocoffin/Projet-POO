@@ -414,51 +414,72 @@ namespace commande {
 #pragma endregion
 	//ajouter commande
 	private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
-		
-		Object^ selectedItem2 = comboBox2->SelectedItem;
-		String^ test = selectedItem2->ToString();
-		int id = Int32::Parse(test);
-		this->cad = gcnew connexion("select * from Client inner join AdresseClient on AdresseClient.Id_client = Client.Id_client inner join Adresse on Adresse.Id_adresse = AdresseClient.Id_adresse where Client.Id_client=" + id + "", 5);
-		String^ nom =this->cad->GetNom();
-		String^ prenom = this->cad->GetPrenom();
-		String^ ville = this->cad->GetVille();
-		String^ datecommande = textBox2->Text;
-		String^ dateEnvoie = textBox3->Text;
-		String^ dateReception = textBox4->Text;
-		String^ datePaiement = textBox5->Text;
-		Object^ selectedItem3 = comboBox3->SelectedItem;
-		String^ nomSocieter = textBox6->Text;
-		Service::GestionCommande^ GestionCommande1 = gcnew Service::GestionCommande(id, datecommande, dateEnvoie, dateReception, datePaiement, selectedItem3->ToString(),nom,prenom,ville,nomSocieter);
-		GestionCommande1->InsertCommande("Commande");
+		if (textBox2->Text == "") {
+			MessageBox::Show("Inserer valeur dans les champs");
+		}
+		else {
+			Object^ selectedItem2 = comboBox2->SelectedItem;
+			String^ test = selectedItem2->ToString();
+			int id = Int32::Parse(test);
+			this->cad = gcnew connexion("select * from Client inner join AdresseClient on AdresseClient.Id_client = Client.Id_client inner join Adresse on Adresse.Id_adresse = AdresseClient.Id_adresse where Client.Id_client=" + id + "", 5);
+			String^ nom = this->cad->GetNom();
+			String^ prenom = this->cad->GetPrenom();
+			String^ ville = this->cad->GetVille();
+			String^ datecommande = textBox2->Text;
+			String^ dateEnvoie = textBox3->Text;
+			String^ dateReception = textBox4->Text;
+			String^ datePaiement = textBox5->Text;
+			Object^ selectedItem3 = comboBox3->SelectedItem;
+			String^ nomSocieter = textBox6->Text;
+			Service::GestionCommande^ GestionCommande1 = gcnew Service::GestionCommande(id, datecommande, dateEnvoie, dateReception, datePaiement, selectedItem3->ToString(), nom, prenom, ville, nomSocieter);
+			GestionCommande1->InsertCommande("Commande");
+		}
 	}
 		   //ajouter article
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	int id = Int32::Parse(textBox1->Text);
-	Service::GestionCommande^ GestionCommande1 = gcnew Service::GestionCommande(id);
-	GestionCommande1->setID_Commande(id);
-	this->Hide();
-	fenetreArticle::AjouterArticle second_form;
-	second_form.ShowDialog();
-	this->Show();
+	if (textBox1->Text == "") {
+		MessageBox::Show("Inserer valeur dans les champs");
+	}
+	else {
+		int id = Int32::Parse(textBox1->Text);
+		Service::GestionCommande^ GestionCommande1 = gcnew Service::GestionCommande(id);
+		GestionCommande1->setID_Commande(id);
+		this->Hide();
+		fenetreArticle::AjouterArticle second_form;
+		second_form.ShowDialog();
+		this->Show();
+	}
+	
 }
 
 	   //ajouter date paiement
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-	int id = Int32::Parse(textBox1->Text);
-	Service::GestionCommande^ GestionCommande1 = gcnew Service::GestionCommande(id);
-	GestionCommande1->setID_Commande(id);
-	this->Hide();
-	fenetreDate::AjouterDataPayement trois_form;
-	trois_form.ShowDialog();
-	this->Show();
+	if (textBox1->Text == "") {
+		MessageBox::Show("Inserer valeur dans les champs");
+	}
+	else {
+		int id = Int32::Parse(textBox1->Text);
+		Service::GestionCommande^ GestionCommande1 = gcnew Service::GestionCommande(id);
+		GestionCommande1->setID_Commande(id);
+		this->Hide();
+		fenetreDate::AjouterDataPayement trois_form;
+		trois_form.ShowDialog();
+		this->Show();
+	}
+	
 }
 
 	   //afficher article_commande
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	int id = Int32::Parse(textBox1->Text);
-	Service::GestionCommande^ GestionCommande1 = gcnew Service::GestionCommande(id);
-	dataGridView1->DataSource = GestionCommande1->SelectCommande("commande");
-	dataGridView1->DataMember = "commande";
+	if (textBox1->Text == "") {
+		MessageBox::Show("Inserer valeur dans les champs");
+	}
+	else {
+		int id = Int32::Parse(textBox1->Text);
+		Service::GestionCommande^ GestionCommande1 = gcnew Service::GestionCommande(id);
+		dataGridView1->DataSource = GestionCommande1->SelectCommande("commande");
+		dataGridView1->DataMember = "commande";
+	}
 }
 
 	   //afficher article aussi
@@ -494,16 +515,26 @@ private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, Sys
 }
 	   //Supprimer
 private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
-	int id = Int32::Parse(textBox1->Text);
-	Service::GestionCommande^ GestionCommande1 = gcnew Service::GestionCommande(id);
-	GestionCommande1->deleteCommande("commande");
+	if (textBox1->Text == "") {
+		MessageBox::Show("Inserer valeur dans les champs");
+	}
+	else {
+		int id = Int32::Parse(textBox1->Text);
+		Service::GestionCommande^ GestionCommande1 = gcnew Service::GestionCommande(id);
+		GestionCommande1->deleteCommande("commande");
+	}
 }
 	   //date de payement
 private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e) {
-	int id = Int32::Parse(textBox1->Text);
-	Service::GestionCommande^ GestionCommande1 = gcnew Service::GestionCommande(id);
-	dataGridView1->DataSource = GestionCommande1->SelectDate("commande");
-	dataGridView1->DataMember = "commande";
+	if (textBox1->Text == "") {
+		MessageBox::Show("Inserer valeur dans les champs");
+	}
+	else {
+		int id = Int32::Parse(textBox1->Text);
+		Service::GestionCommande^ GestionCommande1 = gcnew Service::GestionCommande(id);
+		dataGridView1->DataSource = GestionCommande1->SelectDate("commande");
+		dataGridView1->DataMember = "commande";
+	}
 }
 };
 }
