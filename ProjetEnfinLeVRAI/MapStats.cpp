@@ -6,21 +6,7 @@ String^ MapStats::Panier() {
 
 String^ MapStats::Mois(String^ NomMois)
 {
-	return "SELECT SUM(TOTAL_TTC) as Total_Achat FROM " +
-		"((SELECT Id_commande, Date " +
-		"FROM date_Payer " +
-		"LEFT JOIN " +
-		"(SELECT * " +
-		"FROM Date WHERE MONTH(DATE) = '" + NomMois + "') " +
-		"AS DateMois " +
-		"ON DateMois.Id_date = date_Payer.Id_date) " +
-		"AS DateMoisCommande " +
-		"LEFT JOIN " +
-		"(SELECT Id_commande, TOTAL_TTC " +
-		"FROM Commande) " +
-		"AS Prix " +
-		"ON DateMoisCommande.Id_commande = Prix.Id_commande)";
-
+	return "SELECT SUM(Total_TTC)as Total_Prix_Mois FROM(SELECT * FROM Commande)as Commande INNER JOIN(SELECT * FROM Date WHERE MONTH(DATE) = '" + NomMois + "')as Mois on Mois.Id_date = Commande.Id_date";
 }
 
 String^ MapStats::Seuil()
@@ -51,7 +37,7 @@ String^ MapStats::MVendu()
 
 String^ MapStats::VCommercial()
 {
-	return "SELECT SUM(Prix_HT*Taux_TVA*Quantite_stock) as ValeurCommercial " +
+	return "SELECT SUM(Prix_HT*(Taux_TVA+1)*Quantite_stock) as ValeurCommercial " +
 		"FROM Catalogue";
 }
 
