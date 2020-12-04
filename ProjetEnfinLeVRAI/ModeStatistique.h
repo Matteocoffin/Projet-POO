@@ -577,7 +577,7 @@ namespace statistique {
 		}
 		else { 
 			//teste->assertDataSupZero(TVA);
-			TVA = float::Parse(textBoxTVA->Text); 
+			TVA = 1+float::Parse(textBoxTVA->Text); 
 		}
 	    dataGridView1->DataSource = GestionStats->Simuler(TVA, Marge1->Checked, Marge2->Checked, Marge3->Checked, Remise1->Checked, Remise2->Checked, AutreD1->Checked, AutreD2->Checked, AutreD3->Checked);
 	    dataGridView1->DataMember = "stats";
