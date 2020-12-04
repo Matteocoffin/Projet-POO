@@ -60,6 +60,7 @@ namespace Service {
     }
 
 
+
     float extraire(float tab[], bool tabB[]) {
         float retour = 1;
         int n;
@@ -70,6 +71,7 @@ namespace Service {
         }
         return retour;
     }
+
 
     DataSet^ Service::GestionStats::Simuler(float TVA, bool Marge1, bool Marge2, bool Marge3, bool Remise1, bool Remise2, bool AutreD1, bool AutreD2, bool AutreD3) {
 

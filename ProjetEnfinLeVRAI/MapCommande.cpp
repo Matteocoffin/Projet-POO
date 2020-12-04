@@ -199,7 +199,7 @@ String^ MapCommande::generateName(int id)
     //this->teste->assertEqualString(ComposantPrenom,"Go");
     String^ ComposantNom = Nom->Substring(0, 2);
     //this->teste->assertEqualString(ComposantNom, "Fa");
-    String^ ComposantDate = (date_commande->ToString())->Substring(6);
+    String^ ComposantDate = (date_commande->ToString())->Substring(0,4);
     //this->teste->assertEqualString(ComposantDate, "2012");
     String^ ComposantVille = viLLe->Substring(0, 3);
     //this->teste->assertEqualString(ComposantVille, "Bor");

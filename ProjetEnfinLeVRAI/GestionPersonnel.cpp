@@ -77,7 +77,7 @@ namespace Service {
 		//this->teste->assertEqual(id_adresse,14);
 		this->cad->getRows(this->adresse->InsertPersonnel(id_personnel, id_adresse), dataname);
 		//this->teste->assertEqualString(this->adresse->InsertPersonnel(id_personnel, id_adresse),"insert into dbo.AdressePersonnel values(5,1)");
-		MessageBox::Show("Succes creation Personnel "+ this->cad->GetNom());
+		MessageBox::Show("Succes creation Personnel ");
 	}
 
 	void GestionPersonnel::AjouterAdresse()

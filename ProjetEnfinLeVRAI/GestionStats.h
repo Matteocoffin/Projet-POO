@@ -15,7 +15,6 @@ namespace Service {
 	private: assert^ teste;
 
 	public: GestionStats();
-
 	public: DataSet^ Lier(String^);
 
 	public: DataSet^ Panier();
@@ -27,5 +26,6 @@ namespace Service {
 	public: DataSet^ VCommercial();
 	public: DataSet^ VStock();
 	public: DataSet^ Simuler(float, bool, bool, bool, bool, bool, bool, bool, bool);
+	public: DataSet^(*ptr) ();
 	};
 }

@@ -21,9 +21,6 @@ namespace statistique {
 		Stats(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: ajoutez ici le code du constructeur
-			//
 		}
 
 	protected:
@@ -48,11 +45,11 @@ namespace statistique {
 	private: System::Windows::Forms::RadioButton^ radioButtonMVendu;
 
 
+	private: Service::GestionStats^ Stat;
 
 
 
 
-	private: System::Windows::Forms::Button^ buttonRetour;
 
 
 
@@ -116,7 +113,6 @@ namespace statistique {
 			this->radioButtonClient = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButtonPVendu = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButtonMVendu = (gcnew System::Windows::Forms::RadioButton());
-			this->buttonRetour = (gcnew System::Windows::Forms::Button());
 			this->radioButtonAStock = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButtonVCommercial = (gcnew System::Windows::Forms::RadioButton());
 			this->labelTitre = (gcnew System::Windows::Forms::Label());
@@ -212,15 +208,6 @@ namespace statistique {
 			this->radioButtonMVendu->Text = L"10 articles les moins vendus";
 			this->radioButtonMVendu->UseVisualStyleBackColor = true;
 			this->radioButtonMVendu->CheckedChanged += gcnew System::EventHandler(this, &Stats::radioButtonMVendu_CheckedChanged);
-			// 
-			// buttonRetour
-			// 
-			this->buttonRetour->Location = System::Drawing::Point(40, 272);
-			this->buttonRetour->Name = L"buttonRetour";
-			this->buttonRetour->Size = System::Drawing::Size(75, 23);
-			this->buttonRetour->TabIndex = 7;
-			this->buttonRetour->Text = L"↪ Retour";
-			this->buttonRetour->UseVisualStyleBackColor = true;
 			// 
 			// radioButtonAStock
 			// 
@@ -490,7 +477,6 @@ namespace statistique {
 			this->Controls->Add(this->labelTitre);
 			this->Controls->Add(this->radioButtonAStock);
 			this->Controls->Add(this->radioButtonVCommercial);
-			this->Controls->Add(this->buttonRetour);
 			this->Controls->Add(this->radioButtonMVendu);
 			this->Controls->Add(this->radioButtonPVendu);
 			this->Controls->Add(this->radioButtonClient);
@@ -599,12 +585,12 @@ namespace statistique {
 	private: System::Void textBoxNom_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 		if (radioButtonMois->Checked == 1) {
 			Service::GestionStats^ GestionStats = gcnew Service::GestionStats;
-			dataGridView1->DataSource = GestionStats->Mois(labelNom->Text);
+			dataGridView1->DataSource = GestionStats->Mois(textBoxNom->Text);
 			dataGridView1->DataMember = "stats";
 		}
 		else if (radioButtonClient->Checked == 1) {
 			Service::GestionStats^ GestionStats = gcnew Service::GestionStats;
-			dataGridView1->DataSource = GestionStats->Client(labelNom->Text);
+			dataGridView1->DataSource = GestionStats->Client(textBoxNom->Text);
 			dataGridView1->DataMember = "stats";
 		}
 	}

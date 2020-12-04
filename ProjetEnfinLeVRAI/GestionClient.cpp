@@ -99,7 +99,7 @@ namespace Service {
 		//this->teste->assertEqualString(this->adresse->InsertClient(id_Client, id_adresse),"insert into dbo.AdresseClient values(5,8))");
 		this->cad2->getRows(this->adresse->InsertClientFacture(id_Client, id_adresse_Facture), dataname);
 		//this->teste->assertEqualString(this->adresse->InsertClientFacture(id_Client, id_adresse_Facture),"insert into dbo.AdresseFacturer values(5,10)");
-		MessageBox::Show("Succes creation Client "+ this->cad->GetNom());
+		MessageBox::Show("Succes creation Client ");
 	}
 
 	void GestionClient::AjouterAdresseFacture()

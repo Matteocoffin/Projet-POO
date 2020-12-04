@@ -67,3 +67,4 @@ String^ MapStats::Simuler(int NTVA, float TVA, float Marge, float Reduc, float A
 }
 
 MapStats::MapStats() {}
+
